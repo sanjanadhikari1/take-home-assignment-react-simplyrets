@@ -17,5 +17,6 @@ To Test the app
 
 # Code and Design Decisions
 
-- Developed this app using React 17, Hooks and tailwindCSS (choosing reason: TailwindCSS is light and easy to make mobile responsive and pixel perfect design).
-- Developed testing code using enzyme and JEST (enzyme is powerful testing library to do the dom test)
+This app is developed using React 17, Hooks and tailwindCSS (TailwindCSS is light and easy to develop mobile responsive and pixel perfect design)
+The test code is developed using Enzyme and JEST (enzyme is powerful testing library to do the dom test)
+The axios package is used for fetching data from SimplyRETS.
