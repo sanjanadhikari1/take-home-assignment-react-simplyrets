@@ -30,6 +30,11 @@ export default function PropertyListings() {
       const data = JSON.parse(localStorage.getItem('estates'))
       setEstates(data);
     }
+
+    //If we have list of the favorites in localstorage, should get it.
+    if(localStorage.getItem('favorites')){
+      setFavorites(JSON.parse(localStorage.getItem('favorites')))
+    }
   }, []);
 
   //Function for saving favorites estate id list
