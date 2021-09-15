@@ -6,6 +6,8 @@ import axios from 'axios';
 export default function PropertyListings() {
   const [estates, setEstates] = useState([]);
   const [favorites, setFavorites] = useState([]);
+  
+  //while loading the page, fetch data from the SimplyRETS API
   useEffect(() => {
     async function fetchData () {
       let res = await axios.get('https://api.simplyrets.com/properties', {
@@ -19,15 +21,18 @@ export default function PropertyListings() {
       localStorage.setItem('estates', JSON.stringify(data));
     }
 
-    if(localStorage.getItem('estates')) {
+    //if data is not in localstorage, need to fetch from the endpoint. (For new user)
+    if(!localStorage.getItem('estates')) {
       fetchData()
     }
     else {
+      //If the data is present in localstorage, get the data from localstorage directly, no need to fetch again.
       const data = JSON.parse(localStorage.getItem('estates'))
       setEstates(data);
     }
   }, []);
 
+  //Function for saving favorites estate id list
   const saveFavorites = (id) => {
     let temp = favorites;
     if(temp.includes(id)) temp.splice(temp.indexOf(id), 1)

@@ -24,14 +24,13 @@ describe('rendering dom test', () => {
     expect(wrapper.find('#estate-structure-info').text()).toBe(`${property?.bedrooms} BR | ${property?.bathsFull + property?.bathsHalf / 2} Bath | ${property?.area} Sq Ft`)
   })
   it('Check list price is rendering correctly or not', () => {
-    expect(wrapper.find('#estate-list-price').text()).toBe(`$${sample_estate?.listPrice}`)
+    expect(wrapper.find('#estate-list-price').html()).toContain(`20,714,261`)
   })
   it('Check showing address correctly or not', () => {
     const { address } = sample_estate
     expect(wrapper.find('#estate-address').text()).toBe(`${address?.streetNumber} ${address?.streetName}, ${address?.city}, ${address?.state}`)
   })
   it('Check showing date correctly or not', () => {
-    const { address } = sample_estate
     expect(wrapper.find('#estate-showing-date').text()).toBe(`Listed: ${moment(sample_estate?.listDate).format('MM/DD/YY')}`)
   })
 });
